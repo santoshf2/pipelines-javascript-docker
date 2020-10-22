@@ -5,6 +5,13 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 variables:
+- task: ECRPushImage@1
+  inputs:
+    awsCredentials: 'dcm-int-ecr-upload'
+    regionName: 'ap-southeast-2'
+    imageSource: 'imagename'
+    sourceImageName: 'pipelines-javascript-docker'
+    repositoryName: 'dcm_rules'
   imageName: 'pipelines-javascript-docker'
 
 steps:
